@@ -6,21 +6,30 @@ import { ButtonDelete } from 'pages/Career/components/Buttons/ButtonDelete';
 import { DialogDelete } from 'pages/Career/components/Dialogs/DialogDelete';
 import { CareerContext } from 'pages/Career/context/CareerContext';
 import { SnackbarDelete } from 'pages/Career/components/Snackbars/SnackbarDelete';
+import { DialogCreate } from 'pages/Career/components/Dialogs/DialogCreate';
 
 export const CareerContainer: React.FC = () => {
   const {
     data: { currentCareerId, errorOnDelete },
-    mutations: { deleteCareer, updateCareerList },
+    mutations: { deleteCareer, updateCareerList, createCareer },
   } = useContext(CareerContext);
   const [openDialogDelete, setOpenDialogDelete] = useState(false);
   const [openDialogCreate, setOpenDialogCreate] = useState(false);
   const [showDeleteButton, setShowDeleteButton] = useState(false);
   const [showSnackbarDelete, setShowSnackbarDelete] = useState(false);
+  const [showSnackbarCreate, setShowSnackbarCreate] = useState(false);
 
   const handleDelete = () => {
     deleteCareer();
     setOpenDialogDelete(false);
     setShowSnackbarDelete(true);
+    updateCareerList();
+  };
+
+  const handleCreate = () => {
+    createCareer();
+    setOpenDialogCreate(false);
+    setShowSnackbarCreate(true);
     updateCareerList();
   };
 
@@ -43,7 +52,11 @@ export const CareerContainer: React.FC = () => {
             <Grid item xs={12} md={2}>
               <Grid container justifyContent="center">
                 <Grid>
-                  <ButtonCreate />
+                  <ButtonCreate
+                    onClick={() => {
+                      setOpenDialogCreate(true);
+                    }}
+                  />
                 </Grid>
                 {showDeleteButton ? (
                   <Grid>
@@ -71,6 +84,15 @@ export const CareerContainer: React.FC = () => {
         }}
         onDelete={() => {
           handleDelete();
+        }}
+      />
+      <DialogCreate
+        open={openDialogCreate}
+        onClose={() => {
+          setOpenDialogCreate(false);
+        }}
+        onCreate={() => {
+          handleCreate();
         }}
       />
       <SnackbarDelete

@@ -6,10 +6,10 @@ export interface ButtonCreateProps {
   onClick: () => void;
 }
 
-export const ButtonCreate: React.FC = () => {
+export const ButtonCreate: React.FC<ButtonCreateProps> = ({ onClick }) => {
   return (
     <Tooltip title="Crear Carrera" arrow>
-      <IconButton color="primary">
+      <IconButton onClick={onClick} color="primary">
         <AddCircleRoundedIcon fontSize="large" />
       </IconButton>
     </Tooltip>

@@ -18,3 +18,14 @@ export const deleteCareer = (id?: number): Promise<boolean> => {
       return false;
     });
 };
+
+export const createCareer = (career?: CareerModel): Promise<boolean> => {
+  return instance
+    .post(`/carreras`, career)
+    .then((res) => {
+      return true;
+    })
+    .catch((err) => {
+      return false;
+    });
+};
