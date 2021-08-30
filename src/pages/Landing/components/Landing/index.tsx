@@ -37,8 +37,8 @@ export const Landing: React.FC<LandingProps> = ({ onContinue }) => {
           justifyContent="center"
           alignContent="center"
         >
-          <Grid container item xs={12} md={7}>
-            <Card className={classes.card}>
+          <Grid container item xs={12} sm={8} md={6}>
+            <Card className={classes.card} variant="elevation" elevation={6}>
               <Grid container justifyContent="center" alignContent="center">
                 <Grid item md={10} xs={12}>
                   <Typography
@@ -58,13 +58,15 @@ export const Landing: React.FC<LandingProps> = ({ onContinue }) => {
                     carreras
                   </Typography>
                 </Grid>
-                <Grid item md={8} xs={12}>
+                <Grid item md={10} xs={12}>
                   <TextField
                     className={classes.input}
                     fullWidth
                     error={showError}
                     value={text}
-                    helperText={showError && 'Incorrect entry.'}
+                    helperText={
+                      showError && 'El numero de documento es obligatorio.'
+                    }
                     onChange={(e) => setText(e.target.value)}
                     id="outlined-basic"
                     label="Numero de documento"

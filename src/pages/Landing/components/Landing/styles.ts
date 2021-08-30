@@ -41,6 +41,7 @@ export const useStyles = makeStyles(() =>
       backgroundSize: 'cover',
       width: '50vw',
       height: '100vh',
+      backgroundPosition: '50% 50%',
     },
   }),
 );

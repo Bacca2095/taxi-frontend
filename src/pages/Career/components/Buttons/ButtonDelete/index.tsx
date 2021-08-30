@@ -8,7 +8,7 @@ export interface ButtonDeleteProps {
 
 export const ButtonDelete: React.FC<ButtonDeleteProps> = ({ onClick }) => {
   return (
-    <Tooltip title="Borrar Carrera" color="secondary" arrow>
+    <Tooltip title="Cancelar Carrera" color="secondary" arrow>
       <IconButton color="secondary" onClick={onClick}>
         <DeleteRounded fontSize="large" />
       </IconButton>

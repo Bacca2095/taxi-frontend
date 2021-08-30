@@ -16,6 +16,24 @@ export const useStateContainer = (
     data: { sessionId },
   } = useContext(sessionContext);
   const [allCareers, setAllCareers] = useState(initialState.careers || []);
+  const [currentCareerId, setCurrentCareerId] = useState(0);
+  const [errorOnDelete, setErrorOnDelete] = useState(false);
+
+  const updateCareerList = () => {
+    careerService
+      .listCareer(sessionId?.split(':::')[1])
+      .then((career) => setAllCareers(career));
+  };
+
+  const deleteCareer = () => {
+    careerService.deleteCareer(currentCareerId).then((res) => {
+      if (res) {
+        setErrorOnDelete(false);
+      } else {
+        setErrorOnDelete(true);
+      }
+    });
+  };
 
   useEffect(() => {
     careerService
@@ -24,7 +42,8 @@ export const useStateContainer = (
   }, [sessionId]);
 
   return {
-    data: { allCareers },
+    data: { allCareers, currentCareerId, errorOnDelete },
+    mutations: { setCurrentCareerId, updateCareerList, deleteCareer },
   };
 };
 

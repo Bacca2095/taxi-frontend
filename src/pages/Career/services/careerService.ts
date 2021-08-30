@@ -7,3 +7,14 @@ const instance = axios.create({
 
 export const listCareer = (document?: string): Promise<CareerModel[]> =>
   instance.get<CareerModel[]>(`/carreras/${document}`).then((res) => res.data);
+
+export const deleteCareer = (id?: number): Promise<boolean> => {
+  return instance
+    .delete(`/carreras/${id}`)
+    .then((res) => {
+      return true;
+    })
+    .catch((err) => {
+      return false;
+    });
+};

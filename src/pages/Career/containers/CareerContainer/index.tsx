@@ -1,13 +1,36 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { TableCareer } from 'pages/Career/components/Tables/TableCareers';
 import { Grid, Typography } from '@material-ui/core';
 import { ButtonCreate } from 'pages/Career/components/Buttons/ButtonCreate';
 import { ButtonDelete } from 'pages/Career/components/Buttons/ButtonDelete';
 import { DialogDelete } from 'pages/Career/components/Dialogs/DialogDelete';
+import { CareerContext } from 'pages/Career/context/CareerContext';
+import { SnackbarDelete } from 'pages/Career/components/Snackbars/SnackbarDelete';
 
 export const CareerContainer: React.FC = () => {
+  const {
+    data: { currentCareerId, errorOnDelete },
+    mutations: { deleteCareer, updateCareerList },
+  } = useContext(CareerContext);
   const [openDialogDelete, setOpenDialogDelete] = useState(false);
   const [openDialogCreate, setOpenDialogCreate] = useState(false);
+  const [showDeleteButton, setShowDeleteButton] = useState(false);
+  const [showSnackbarDelete, setShowSnackbarDelete] = useState(false);
+
+  const handleDelete = () => {
+    deleteCareer();
+    setOpenDialogDelete(false);
+    setShowSnackbarDelete(true);
+    updateCareerList();
+  };
+
+  useEffect(() => {
+    if (currentCareerId && currentCareerId > 0) {
+      setShowDeleteButton(true);
+    } else {
+      setShowDeleteButton(false);
+    }
+  }, [currentCareerId]);
 
   return (
     <>
@@ -22,13 +45,17 @@ export const CareerContainer: React.FC = () => {
                 <Grid>
                   <ButtonCreate />
                 </Grid>
-                <Grid>
-                  <ButtonDelete
-                    onClick={() => {
-                      setOpenDialogDelete(true);
-                    }}
-                  />
-                </Grid>
+                {showDeleteButton ? (
+                  <Grid>
+                    <ButtonDelete
+                      onClick={() => {
+                        setOpenDialogDelete(true);
+                      }}
+                    />
+                  </Grid>
+                ) : (
+                  ''
+                )}
               </Grid>
             </Grid>
           </Grid>
@@ -42,6 +69,16 @@ export const CareerContainer: React.FC = () => {
         onClose={() => {
           setOpenDialogDelete(false);
         }}
+        onDelete={() => {
+          handleDelete();
+        }}
+      />
+      <SnackbarDelete
+        open={showSnackbarDelete}
+        onClose={() => {
+          setShowSnackbarDelete(false);
+        }}
+        state={!errorOnDelete}
       />
     </>
   );

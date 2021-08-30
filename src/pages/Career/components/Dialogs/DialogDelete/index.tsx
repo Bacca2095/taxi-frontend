@@ -12,11 +12,13 @@ import {
 export interface DialogDeleteProps {
   open: boolean;
   onClose: () => void;
+  onDelete: () => void;
 }
 
 export const DialogDelete: React.FC<DialogDeleteProps> = ({
   open,
   onClose,
+  onDelete,
 }) => {
   return (
     <Dialog open={open} maxWidth="xs" fullWidth>
@@ -28,7 +30,7 @@ export const DialogDelete: React.FC<DialogDeleteProps> = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancelar</Button>
-        <Button color="secondary" variant="contained">
+        <Button onClick={onDelete} color="secondary" variant="contained">
           Borrar
         </Button>
       </DialogActions>
