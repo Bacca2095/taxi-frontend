@@ -1,4 +1,4 @@
 export interface SessionState {
-  username?: string;
+  document?: string;
   sessionId?: string;
 }

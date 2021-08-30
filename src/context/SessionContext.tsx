@@ -1,26 +1,31 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { createContext, useEffect, useRef, useState } from 'react';
 import { SessionState } from 'context/models/SessionState';
 import * as sessionService from '../services/sessionService';
 
 export const useStateContainer = (initialState: SessionState = {}) => {
-  const [username, setUsername] = useState(initialState.username);
+  const [document, setDocument] = useState(initialState.document);
   const [sessionId, setSessionId] = useState(initialState.sessionId);
-  const usernameRef = useRef(false);
+  const documentRef = useRef(false);
+
+  const clearSession = () => {
+    sessionService.deleteSession();
+  };
 
   useEffect(() => {
-    if (!usernameRef.current) {
-      usernameRef.current = true;
+    if (!documentRef.current) {
+      documentRef.current = true;
       return;
     }
-    if (!username) {
+    if (!document) {
       return;
     }
-    setSessionId(sessionService.createSession(username));
-  }, [username]);
+    setSessionId(sessionService.createSession(document));
+  }, [document]);
 
   return {
-    data: { username, sessionId },
-    mutations: { setUsername },
+    data: { document, sessionId },
+    mutations: { setDocument, clearSession },
   };
 };
 

@@ -1,23 +1,23 @@
 import { createStyles, makeStyles } from '@material-ui/core/styles';
+import background from '../../../../assets/img/background.jpg';
 
 export const useStyles = makeStyles(() =>
   createStyles({
+    card: {
+      paddingTop: '64px',
+      paddingBottom: '64px',
+      padding: '16px',
+    },
     container: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingLeft: '10px',
-      paddingRight: '10px',
+      height: '100vh',
+      width: '100vw',
+      margin: '0px',
+      padding: 'opx',
     },
-    containerImg: {
-      display: 'flex',
-      justifyContent: 'center',
-      marginTop: '50px',
-    },
-    img: {
-      width: '50%',
-      height: '50%',
+    containerItem: {
+      width: '50vw',
+      margin: '0px',
+      padding: '0px',
     },
     title: {
       marginTop: '40px',
@@ -35,6 +35,12 @@ export const useStyles = makeStyles(() =>
     },
     button: {
       color: '#fff',
+    },
+    backgroundImg: {
+      backgroundImage: `url(${background})`,
+      backgroundSize: 'cover',
+      width: '50vw',
+      height: '100vh',
     },
   }),
 );

@@ -4,7 +4,7 @@ import { Landing } from 'pages/Landing/components/Landing';
 
 export const LandingContainer: React.FC = () => {
   const {
-    mutations: { setUsername },
+    mutations: { setDocument },
   } = useContext(SessionContext);
-  return <Landing onContinue={setUsername} />;
+  return <Landing onContinue={setDocument} />;
 };
