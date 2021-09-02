@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing Page tests should match snapshot 1`] = `
+<div>
+  <div
+    class="MuiGrid-root makeStyles-container-2 MuiGrid-container MuiGrid-justify-content-xs-center"
+  >
+    <div
+      class="MuiGrid-root makeStyles-containerItem-3 MuiGrid-container MuiGrid-item MuiGrid-align-content-xs-center MuiGrid-justify-content-xs-center MuiGrid-grid-xs-10 MuiGrid-grid-md-6"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 MuiGrid-grid-md-6"
+      >
+        <div
+          class="MuiPaper-root MuiCard-root makeStyles-card-1 MuiPaper-elevation6 MuiPaper-rounded"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-align-content-xs-center MuiGrid-justify-content-xs-center"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-10"
+            >
+              <p
+                class="MuiTypography-root makeStyles-title-4 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+              >
+                Bienvenido a Taxi APP
+              </p>
+              <p
+                class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+              >
+                Ingrese su documento para consultar y solicitar nuevas carreras
+              </p>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-10"
+            >
+              <div
+                class="MuiFormControl-root MuiTextField-root makeStyles-input-5 MuiFormControl-fullWidth"
+                data-testid="document"
+              >
+                <label
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+                  data-shrink="false"
+                  for="outlined-basic"
+                  id="outlined-basic-label"
+                >
+                  Numero de documento
+                </label>
+                <div
+                  class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+                >
+                  <input
+                    aria-invalid="false"
+                    class="MuiInputBase-input MuiOutlinedInput-input"
+                    id="outlined-basic"
+                    type="text"
+                    value=""
+                  />
+                  <fieldset
+                    aria-hidden="true"
+                    class="PrivateNotchedOutline-root-7 MuiOutlinedInput-notchedOutline"
+                  >
+                    <legend
+                      class="PrivateNotchedOutline-legendLabelled-9"
+                    >
+                      <span>
+                        Numero de documento
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
+              </div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-fullWidth"
+                data-testid="login"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  Continuar
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

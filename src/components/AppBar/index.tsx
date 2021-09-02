@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import { SessionContext } from 'context/SessionContext';
+import { ButtonLogout } from 'components/Buttons/ButtonLogout';
 import { useStyles } from './styles';
 
 export const AppBarNav: React.FC = () => {
@@ -25,14 +26,11 @@ export const AppBarNav: React.FC = () => {
         <Typography variant="h6" className={classes.title}>
           Taxi App
         </Typography>
-        <Button
-          color="inherit"
+        <ButtonLogout
           onClick={() => {
             clearSession();
           }}
-        >
-          Salir
-        </Button>
+        />
       </Toolbar>
     </AppBar>
   );

@@ -7,10 +7,12 @@ import { DialogDelete } from 'pages/Career/components/Dialogs/DialogDelete';
 import { CareerContext } from 'pages/Career/context/CareerContext';
 import { SnackbarDelete } from 'pages/Career/components/Snackbars/SnackbarDelete';
 import { DialogCreate } from 'pages/Career/components/Dialogs/DialogCreate';
+import { SnackbarCreate } from 'pages/Career/components/Snackbars/SnackbarCreate';
+import { CareerModel } from 'pages/Career/models/CareerModel';
 
 export const CareerContainer: React.FC = () => {
   const {
-    data: { currentCareerId, errorOnDelete },
+    data: { currentCareerId, errorOnDelete, errorOnCreate },
     mutations: { deleteCareer, updateCareerList, createCareer },
   } = useContext(CareerContext);
   const [openDialogDelete, setOpenDialogDelete] = useState(false);
@@ -26,8 +28,8 @@ export const CareerContainer: React.FC = () => {
     updateCareerList();
   };
 
-  const handleCreate = () => {
-    createCareer();
+  const handleCreate = (career: CareerModel) => {
+    createCareer(career);
     setOpenDialogCreate(false);
     setShowSnackbarCreate(true);
     updateCareerList();
@@ -91,9 +93,7 @@ export const CareerContainer: React.FC = () => {
         onClose={() => {
           setOpenDialogCreate(false);
         }}
-        onCreate={() => {
-          handleCreate();
-        }}
+        onCreate={handleCreate}
       />
       <SnackbarDelete
         open={showSnackbarDelete}
@@ -101,6 +101,13 @@ export const CareerContainer: React.FC = () => {
           setShowSnackbarDelete(false);
         }}
         state={!errorOnDelete}
+      />
+      <SnackbarCreate
+        open={showSnackbarCreate}
+        onClose={() => {
+          setShowSnackbarCreate(false);
+        }}
+        state={!errorOnCreate}
       />
     </>
   );

@@ -3,7 +3,9 @@ import React, { createContext, useEffect, useRef, useState } from 'react';
 import { SessionState } from 'context/models/SessionState';
 import * as sessionService from '../services/sessionService';
 
-export const useStateContainer = (initialState: SessionState = {}) => {
+export const useStateContainer = (
+  initialState: SessionState = { document: '', sessionId: '' },
+) => {
   const [document, setDocument] = useState(initialState.document);
   const [sessionId, setSessionId] = useState(initialState.sessionId);
   const documentRef = useRef(false);

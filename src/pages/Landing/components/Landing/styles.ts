@@ -33,9 +33,6 @@ export const useStyles = makeStyles(() =>
       marginTop: '30px',
       marginBottom: '20px',
     },
-    button: {
-      color: '#fff',
-    },
     backgroundImg: {
       backgroundImage: `url(${background})`,
       backgroundSize: 'cover',

@@ -6,5 +6,8 @@ export const useStyles = makeStyles(() =>
       width: '100%',
       height: '400px',
     },
+    dataGridHeader: {
+      fontSize: '1.5rem',
+    },
   }),
 );

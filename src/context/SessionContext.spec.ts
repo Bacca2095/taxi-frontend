@@ -20,15 +20,14 @@ describe('Session Context text', () => {
   });
 
   it('should create session', () => {
-    const sessionId = '123';
-    const userName = 'food';
-    sessionService.createSession.mockReturnValue(sessionId);
+    const document = '12345';
+    sessionService.createSession.mockReturnValue(document);
 
     act(() => {
-      hookWrapper.result.current.mutations.setUsername(userName);
+      hookWrapper.result.current.mutations.setDocument(document);
     });
 
-    expect(hookWrapper.result.current.data.sessionId).toBe(sessionId);
-    expect(sessionService.createSession).toHaveBeenCalledWith(userName);
+    expect(hookWrapper.result.current.data.sessionId).toBe(document);
+    expect(sessionService.createSession).toHaveBeenCalledWith(document);
   });
 });
