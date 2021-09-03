@@ -71,7 +71,7 @@ export const TableCareer: React.FC = () => {
     <Grid container spacing={3}>
       <Grid item xs={12} className={classes.dataGrid}>
         <DataGrid
-          rows={allCareers as CareerModel[]}
+          rows={allCareers}
           columns={columns}
           pageSize={5}
           onSelectionModelChange={currentCareer}

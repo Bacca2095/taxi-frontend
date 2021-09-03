@@ -4,8 +4,8 @@ import { SessionState } from 'context/models/SessionState';
 const SESSION_IDENTIFIER = 'SESSION_ID';
 const SESSION_SEPARATOR = ':::';
 
-export const createSession = (username?: string): string => {
-  const sessionId = `${uuidv4()}${SESSION_SEPARATOR}${username}${SESSION_SEPARATOR}${Date.now()}`;
+export const createSession = (document?: string): string => {
+  const sessionId = `${uuidv4()}${SESSION_SEPARATOR}${document}${SESSION_SEPARATOR}${Date.now()}`;
   localStorage.setItem(SESSION_IDENTIFIER, sessionId);
   return sessionId;
 };

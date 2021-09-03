@@ -47,10 +47,8 @@ export const useStateContainer = (
   };
 
   useEffect(() => {
-    careerService
-      .listCareer(sessionId?.split(':::')[1])
-      .then((career) => setAllCareers(career));
-  }, [sessionId]);
+    updateCareerList();
+  });
 
   return {
     data: { allCareers, currentCareerId, errorOnDelete, errorOnCreate },

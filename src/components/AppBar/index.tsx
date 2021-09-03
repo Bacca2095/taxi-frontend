@@ -1,11 +1,5 @@
 import React, { useContext } from 'react';
-import {
-  IconButton,
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-} from '@material-ui/core';
+import { IconButton, AppBar, Toolbar, Typography } from '@material-ui/core';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import { SessionContext } from 'context/SessionContext';
 import { ButtonLogout } from 'components/Buttons/ButtonLogout';
