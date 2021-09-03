@@ -5,7 +5,7 @@ const SESSION_IDENTIFIER = 'SESSION_ID';
 const SESSION_SEPARATOR = ':::';
 
 export const createSession = (document?: string): string => {
-  const sessionId = `${uuidv4()}${SESSION_SEPARATOR}${document}${SESSION_SEPARATOR}${Date.now()}`;
+  const sessionId = `ID${SESSION_SEPARATOR}${document}`;
   localStorage.setItem(SESSION_IDENTIFIER, sessionId);
   return sessionId;
 };

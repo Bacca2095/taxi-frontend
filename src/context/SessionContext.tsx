@@ -12,6 +12,8 @@ export const useStateContainer = (
 
   const clearSession = () => {
     sessionService.deleteSession();
+    setDocument(undefined);
+    window.location.href = '/';
   };
 
   useEffect(() => {
