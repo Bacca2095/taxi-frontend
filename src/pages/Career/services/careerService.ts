@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { CareerModel } from '../models/CareerModel';
 
+axios.defaults.adapter = require('axios/lib/adapters/http');
+
 const instance = axios.create({
   baseURL: 'http://localhost:3001/api',
 });
