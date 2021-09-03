@@ -8,7 +8,6 @@ import {
 } from '@material-ui/data-grid';
 import { Grid } from '@material-ui/core';
 import { useStyles } from './styles';
-import { CareerModel } from '../../../models/CareerModel';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', hide: true },
