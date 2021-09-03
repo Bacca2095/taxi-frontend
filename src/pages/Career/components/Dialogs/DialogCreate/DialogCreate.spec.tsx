@@ -36,6 +36,13 @@ describe('Dialog Create tests', () => {
     career = careerFixture.getSingle();
     careers = careerFixture.getList();
 
+    nock('http://localhost:3001/api')
+      .persist()
+      .get('/carreras/12345')
+      .reply(200, careers)
+      .post('/carreras', matches(career))
+      .reply(201);
+
     const { findByTestId } = render(
       <SessionProvider>
         <CareerProvider>
@@ -54,16 +61,6 @@ describe('Dialog Create tests', () => {
     fireEvent.change(phone, { target: { value: career.telefono } });
     fireEvent.change(address, { target: { value: career.direccion } });
     fireEvent.change(date, { target: { value: career.fechaRecogida } });
-
-    nock('http://localhost:3001/api')
-      .persist()
-      .get('/carreras/undefined')
-      .reply(200, careers);
-
-    nock('http://localhost:3001/api')
-      .persist()
-      .post('/carreras', matches(career))
-      .reply(201);
 
     fireEvent.click(saveButton);
 
