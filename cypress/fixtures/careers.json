@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nombre": "test 1",
+    "documento": "12345",
+    "telefono": 318,
+    "fechaRecogida": "2021-09-03T16:28:50.316Z",
+    "horaRecogida": "8:00",
+    "direccion": "Calle xy #xy-xy barrio z"
+  },
+  {
+    "id": 2,
+    "nombre": "test 2",
+    "documento": "12345",
+    "telefono": 318,
+    "fechaRecogida": "2021-09-03T16:28:50.316Z",
+    "horaRecogida": "8:00",
+    "direccion": "Calle xy #xy-xy barrio z"
+  }
+]

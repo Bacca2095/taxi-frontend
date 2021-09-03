@@ -29,7 +29,12 @@ export const DialogDelete: React.FC<DialogDeleteProps> = ({
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancelar</Button>
-        <Button onClick={onDelete} color="secondary" variant="contained">
+        <Button
+          onClick={onDelete}
+          color="secondary"
+          data-testid="dialog-delete-button"
+          variant="contained"
+        >
           Borrar
         </Button>
       </DialogActions>

@@ -68,8 +68,7 @@ export const Landing: React.FC<LandingProps> = ({ onContinue }) => {
                       showError && 'El numero de documento es obligatorio.'
                     }
                     onChange={(e) => setText(e.target.value)}
-                    data-testid="document"
-                    id="outlined-basic"
+                    inputProps={{ 'data-testid': 'input-login-document' }}
                     label="Numero de documento"
                     variant="outlined"
                   />
