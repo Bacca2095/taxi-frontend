@@ -184,7 +184,7 @@ exports[`Dialog Create tests should match snapshot 1`] = `
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                       data-testid="input-date"
                       type="text"
-                      value="2021/09/04"
+                      value="2021/09/05"
                     />
                     <div
                       class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
@@ -253,7 +253,7 @@ exports[`Dialog Create tests should match snapshot 1`] = `
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                       data-testid="input-time"
                       type="text"
-                      value="08:39 PM"
+                      value="12:23 AM"
                     />
                     <div
                       class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
@@ -322,9 +322,10 @@ exports[`Dialog Create tests should match snapshot 1`] = `
               />
             </button>
             <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled Mui-disabled"
               data-testid="dialog-create-button"
-              tabindex="0"
+              disabled=""
+              tabindex="-1"
               type="submit"
             >
               <span
@@ -332,9 +333,6 @@ exports[`Dialog Create tests should match snapshot 1`] = `
               >
                 Solicitar
               </span>
-              <span
-                class="MuiTouchRipple-root"
-              />
             </button>
           </div>
         </div>

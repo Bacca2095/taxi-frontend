@@ -43,8 +43,10 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
     register,
     handleSubmit,
     reset,
-    formState: { errors },
-  } = useForm();
+    formState: { errors, isValid },
+  } = useForm({
+    mode: 'onChange',
+  });
   const {
     data: { sessionId },
   } = useContext(SessionContext);
@@ -156,6 +158,7 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
               data-testid="dialog-create-button"
               variant="contained"
               type="submit"
+              disabled={!isValid}
             >
               Solicitar
             </Button>
