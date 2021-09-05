@@ -53,16 +53,17 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
 
   const [documento] = useState(sessionId?.split(':::')[1]);
   const [fechaRecogida, setFechaRecogida] = useState<Date>(new Date());
+  const [horaRecogida, setHoraRecogida] = useState('00:00');
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const { nombre, telefono, direccion } = data;
-    const hora = hour(fechaRecogida);
+
     const career: CareerModel = {
       nombre,
       documento: documento || '',
       telefono: +telefono,
       fechaRecogida: fechaRecogida.toISOString(),
-      horaRecogida: hora,
+      horaRecogida,
       direccion,
     };
     reset();
@@ -71,6 +72,7 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
 
   const handleDateChange = (date: Date | null) => {
     setFechaRecogida(date || new Date());
+    setHoraRecogida(hour(fechaRecogida));
   };
 
   return (
@@ -152,10 +154,12 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
             </Grid>
           </DialogContent>
           <DialogActions>
-            <Button onClick={onClose}>Cancelar</Button>
+            <Button onClick={onClose} data-testid="dialog-create-cancel">
+              Cancelar
+            </Button>
             <Button
               color="primary"
-              data-testid="dialog-create-button"
+              data-testid="dialog-create-submit"
               variant="contained"
               type="submit"
               disabled={!isValid}
