@@ -42,6 +42,7 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const {
@@ -62,6 +63,7 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
       horaRecogida: hora,
       direccion,
     };
+    reset();
     onCreate(career);
   };
 

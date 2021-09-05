@@ -5,34 +5,26 @@ import { ButtonCreate } from 'pages/Career/components/Buttons/ButtonCreate';
 import { ButtonDelete } from 'pages/Career/components/Buttons/ButtonDelete';
 import { DialogDelete } from 'pages/Career/components/Dialogs/DialogDelete';
 import { CareerContext } from 'pages/Career/context/CareerContext';
-import { SnackbarDelete } from 'pages/Career/components/Snackbars/SnackbarDelete';
 import { DialogCreate } from 'pages/Career/components/Dialogs/DialogCreate';
-import { SnackbarCreate } from 'pages/Career/components/Snackbars/SnackbarCreate';
 import { CareerModel } from 'pages/Career/models/CareerModel';
 
 export const CareerContainer: React.FC = () => {
   const {
-    data: { currentCareerId, errorOnDelete, errorOnCreate },
-    mutations: { deleteCareer, updateCareerList, createCareer },
+    data: { currentCareerId },
+    mutations: { deleteCareer, createCareer },
   } = useContext(CareerContext);
   const [openDialogDelete, setOpenDialogDelete] = useState(false);
   const [openDialogCreate, setOpenDialogCreate] = useState(false);
   const [showDeleteButton, setShowDeleteButton] = useState(false);
-  const [showSnackbarDelete, setShowSnackbarDelete] = useState(false);
-  const [showSnackbarCreate, setShowSnackbarCreate] = useState(false);
 
   const handleDelete = () => {
     deleteCareer();
     setOpenDialogDelete(false);
-    setShowSnackbarDelete(true);
-    updateCareerList();
   };
 
   const handleCreate = (career: CareerModel) => {
     createCareer(career);
     setOpenDialogCreate(false);
-    setShowSnackbarCreate(true);
-    updateCareerList();
   };
 
   useEffect(() => {
@@ -94,20 +86,6 @@ export const CareerContainer: React.FC = () => {
           setOpenDialogCreate(false);
         }}
         onCreate={handleCreate}
-      />
-      <SnackbarDelete
-        open={showSnackbarDelete}
-        onClose={() => {
-          setShowSnackbarDelete(false);
-        }}
-        state={!errorOnDelete}
-      />
-      <SnackbarCreate
-        open={showSnackbarCreate}
-        onClose={() => {
-          setShowSnackbarCreate(false);
-        }}
-        state={!errorOnCreate}
       />
     </>
   );
