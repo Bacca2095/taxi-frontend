@@ -18,6 +18,6 @@ describe('Flujo para crear una carrera', () => {
     cy.get('[data-testid="input-name"]').clear().type('test');
     cy.get('[data-testid="input-phone"]').clear().type(12345);
     cy.get('[data-testid="input-address"]').clear().type('calle test');
-    cy.get('[data-testid="dialog-create-button"]').click();
+    cy.get('[data-testid="dialog-create-submit"]').click();
   });
 });
