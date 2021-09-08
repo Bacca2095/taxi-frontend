@@ -53,11 +53,12 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
 
   const [documento] = useState(sessionId?.split(':::')[1]);
   const [fechaRecogida, setFechaRecogida] = useState<Date>(new Date());
-  const [horaRecogida, setHoraRecogida] = useState('00:00');
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const { nombre, telefono, direccion } = data;
 
+    const horaRecogida = hour(fechaRecogida);
+    console.log(nombre, telefono, direccion, fechaRecogida, horaRecogida);
     const career: CareerModel = {
       nombre,
       documento: documento || '',
@@ -66,13 +67,13 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
       horaRecogida,
       direccion,
     };
-    reset();
+
     onCreate(career);
+    reset();
   };
 
   const handleDateChange = (date: Date | null) => {
     setFechaRecogida(date || new Date());
-    setHoraRecogida(hour(fechaRecogida));
   };
 
   return (
@@ -98,7 +99,7 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
                   {...register('nombre', { required: true })}
                   variant="outlined"
                   error={errors.nombre !== undefined}
-                  helperText={errors.nombre && 'El nombre es obligatorio.'}
+                  helperText={errors.nombre && 'Este campo es obligatorio.'}
                   fullWidth
                   inputProps={{ 'data-testid': 'input-name' }}
                 />
@@ -108,7 +109,7 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
                   label="Teléfono"
                   {...register('telefono', { required: true })}
                   error={errors.telefono !== undefined}
-                  helperText={errors.telefono && 'El telefono es obligatorio.'}
+                  helperText={errors.telefono && 'Este campo es obligatorio.'}
                   variant="outlined"
                   type="number"
                   fullWidth
@@ -120,9 +121,7 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
                   label="Dirección"
                   {...register('direccion', { required: true })}
                   error={errors.direccion !== undefined}
-                  helperText={
-                    errors.direccion && 'La direccion es obligatoria.'
-                  }
+                  helperText={errors.direccion && 'Este campo es obligatorio.'}
                   variant="outlined"
                   fullWidth
                   inputProps={{ 'data-testid': 'input-address' }}

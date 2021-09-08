@@ -63,6 +63,7 @@ export const CareerContainer: React.FC = () => {
                       onClick={() => {
                         setOpenDialogDelete(true);
                       }}
+                      data-testid="open-delete-dialog"
                     />
                   </Grid>
                 ) : (

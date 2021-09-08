@@ -5,6 +5,7 @@ import { SessionContext, SessionProvider } from 'context/SessionContext';
 import { CareerProvider } from 'pages/Career/context/CareerContext';
 import * as careerFixture from 'tests/fixtures/career.fixture';
 import { CareerModel } from 'pages/Career/models/CareerModel';
+import { act } from 'react-dom/test-utils';
 import { DialogCreate } from '.';
 
 describe('Dialog Create tests', () => {
@@ -19,9 +20,11 @@ describe('Dialog Create tests', () => {
 
   beforeEach(() => {
     onClose = jest.fn();
-    onCreate = jest.fn();
     setDocument = jest.fn();
     clearSession = jest.fn();
+    career = careerFixture.getSingle();
+    careers = careerFixture.getList();
+    onCreate = jest.fn();
     nock('http://localhost:3001/api')
       .persist()
       .get('/carreras/12345')
@@ -47,11 +50,11 @@ describe('Dialog Create tests', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should test save', async () => {
+  it('should test not save', async () => {
     career = careerFixture.getSingle();
     careers = careerFixture.getList();
 
-    const { findByTestId } = render(
+    const { findByTestId, findAllByText } = render(
       <SessionContext.Provider
         value={{
           data: { document, sessionId },
@@ -67,18 +70,17 @@ describe('Dialog Create tests', () => {
     const name = await findByTestId('input-name');
     const phone = await findByTestId('input-phone');
     const address = await findByTestId('input-address');
-    const date = await findByTestId('input-date');
-    const saveButton = await findByTestId('dialog-create-cancel');
 
     fireEvent.change(name, { target: { value: career.nombre } });
     fireEvent.change(phone, { target: { value: career.telefono } });
     fireEvent.change(address, { target: { value: career.direccion } });
-    fireEvent.change(date, { target: { value: career.fechaRecogida } });
 
-    fireEvent.click(saveButton);
+    fireEvent.change(name, { target: { value: '' } });
+    fireEvent.change(phone, { target: { value: '' } });
+    fireEvent.change(address, { target: { value: '' } });
 
-    await waitFor(() => {
-      expect(onClose).toBeCalled();
-    });
+    const count = await findAllByText(/obligatorio/i);
+
+    expect(count.length).toBe(3);
   });
 });

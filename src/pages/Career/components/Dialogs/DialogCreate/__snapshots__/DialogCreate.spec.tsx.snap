@@ -184,7 +184,7 @@ exports[`Dialog Create tests should match snapshot 1`] = `
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                       data-testid="input-date"
                       type="text"
-                      value="2021/09/06"
+                      value="2021/09/08"
                     />
                     <div
                       class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
@@ -253,7 +253,7 @@ exports[`Dialog Create tests should match snapshot 1`] = `
                       class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
                       data-testid="input-time"
                       type="text"
-                      value="11:40 PM"
+                      value="03:18 PM"
                     />
                     <div
                       class="MuiInputAdornment-root MuiInputAdornment-positionEnd"
