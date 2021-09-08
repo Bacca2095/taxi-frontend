@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { CareerContext } from 'pages/Career/context/CareerContext';
 import { SnackbarDelete } from 'pages/Career/components/Snackbars/SnackbarDelete';
 import { SnackbarCreate } from 'pages/Career/components/Snackbars/SnackbarCreate';

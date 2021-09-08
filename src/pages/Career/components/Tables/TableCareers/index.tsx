@@ -62,6 +62,8 @@ export const TableCareer: React.FC = () => {
   } = useContext(CareerContext);
   const classes = useStyles();
 
+  const size = 10;
+
   const currentCareer = (id: GridSelectionModel) => {
     setCurrentCareerId((id[0] as number) || 0);
   };
@@ -72,8 +74,8 @@ export const TableCareer: React.FC = () => {
         <DataGrid
           rows={allCareers}
           columns={columns}
-          pageSize={10}
-          rowsPerPageOptions={[10]}
+          pageSize={size}
+          rowsPerPageOptions={[size]}
           onSelectionModelChange={currentCareer}
         />
       </Grid>

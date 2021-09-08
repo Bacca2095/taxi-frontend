@@ -58,7 +58,7 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
     const { nombre, telefono, direccion } = data;
 
     const horaRecogida = hour(fechaRecogida);
-    console.log(nombre, telefono, direccion, fechaRecogida, horaRecogida);
+
     const career: CareerModel = {
       nombre,
       direccion,
