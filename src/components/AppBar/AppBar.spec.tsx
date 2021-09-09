@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { SessionProvider } from 'context/SessionContext';
 import { AppBarNav } from '.';
 
@@ -21,5 +21,17 @@ describe('AppBarNav tests', () => {
     );
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('should match snapshot', async () => {
+    const { findByTestId } = render(
+      <SessionProvider>
+        <AppBarNav />
+      </SessionProvider>,
+    );
+
+    const logoutButton = await findByTestId('logout');
+
+    fireEvent.click(logoutButton);
   });
 });

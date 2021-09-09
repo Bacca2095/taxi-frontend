@@ -30,4 +30,15 @@ describe('Session Context text', () => {
     expect(hookWrapper.result.current.data.sessionId).toBe(document);
     expect(sessionService.createSession).toHaveBeenCalledWith(document);
   });
+
+  it('should delete session', () => {
+    const document = '12345';
+    sessionService.createSession.mockReturnValue(document);
+
+    act(() => {
+      hookWrapper.result.current.mutations.clearSession();
+    });
+
+    expect(hookWrapper.result.current.data.sessionId).toBe('');
+  });
 });

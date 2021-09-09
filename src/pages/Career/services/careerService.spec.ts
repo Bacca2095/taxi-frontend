@@ -34,4 +34,18 @@ describe('career service test', () => {
     const value = await careerService.deleteCareer(1);
     expect(value).toBeTruthy();
   });
+
+  it('should create career', async () => {
+    nock('http://localhost:3001/api')
+      .post('/carreras', matches(career))
+      .replyWithError('');
+    const value = await careerService.createCareer(career);
+    expect(value).toBeFalsy();
+  });
+
+  it('should delete career', async () => {
+    nock('http://localhost:3001/api').delete('/carreras/1').replyWithError('');
+    const value = await careerService.deleteCareer(1);
+    expect(value).toBeFalsy();
+  });
 });

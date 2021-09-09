@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonDelete tests should match snapshot 1`] = `
+exports[`Snackbar Delete tests should match snapshot 1`] = `
 <div>
   <div
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
@@ -64,7 +64,7 @@ exports[`ButtonDelete tests should match snapshot 1`] = `
 </div>
 `;
 
-exports[`ButtonDelete tests should match snapshot 2`] = `
+exports[`Snackbar Delete tests should match snapshot 2`] = `
 <div>
   <div
     class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter"
