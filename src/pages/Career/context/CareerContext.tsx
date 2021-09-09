@@ -26,7 +26,6 @@ export const useStateContainer = (
   const [errorOnDelete, setErrorOnDelete] = useState(false);
   const [errorOnCreate, setErrorOnCreate] = useState(false);
   const [updateList, setUpdateList] = useState(false);
-  const careerRef = useRef(false);
 
   const deleteCareer = () => {
     careerService.deleteCareer(currentCareerId).then((res) => {
@@ -52,13 +51,6 @@ export const useStateContainer = (
   };
 
   useEffect(() => {
-    if (!careerRef.current) {
-      careerRef.current = true;
-      return;
-    }
-    if (!document) {
-      return;
-    }
     careerService
       .listCareer(sessionId?.split(':::')[1])
       .then((career) => setAllCareers(career));
