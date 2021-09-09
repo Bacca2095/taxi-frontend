@@ -62,10 +62,10 @@ export const DialogCreate: React.FC<DialogCreateProps> = ({
     const career: CareerModel = {
       nombre,
       direccion,
+      horaRecogida,
       documento: documento || '',
       telefono: +telefono,
       fechaRecogida: fechaRecogida.toISOString(),
-      horaRecogida,
     };
 
     onCreate(career);
