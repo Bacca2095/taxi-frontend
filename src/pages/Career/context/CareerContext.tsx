@@ -1,11 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { SessionContext } from 'context/SessionContext';
 import * as careerService from '../services/careerService';
 import { CareerModel } from '../models/CareerModel';
