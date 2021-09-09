@@ -45,9 +45,13 @@ export const useStateContainer = (
   };
 
   useEffect(() => {
-    careerService
-      .listCareer(sessionId?.split(':::')[1])
-      .then((career) => setAllCareers(career));
+    let unmounted = false;
+    careerService.listCareer(sessionId?.split(':::')[1]).then((career) => {
+      if (!unmounted) setAllCareers(career);
+    });
+    return () => {
+      unmounted = true;
+    };
   }, [sessionId, updateList]);
 
   return {

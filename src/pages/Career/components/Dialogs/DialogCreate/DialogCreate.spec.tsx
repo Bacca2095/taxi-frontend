@@ -110,9 +110,9 @@ describe('Dialog Create tests', () => {
 
     const save = await findByTestId('dialog-create-submit');
 
-    fireEvent.click(save);
-
-    await new Promise((resolve) => setImmediate(resolve));
+    await act(async () => {
+      fireEvent.click(save);
+    });
 
     await waitFor(() => {
       expect(onCreate).toHaveBeenCalled();
